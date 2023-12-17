@@ -1,17 +1,14 @@
 
 # PHP Socket Server
 
-A brief description of what this project does and who it's for
+Php socket sample using 
+Socket - Ratches Socket
+Log for - 
 
 
 ## Authors
 
 - [@arlo](https://www.github.com/arlo-peace)
-
-
-# PHP Socket Server
-
-A brief description of what this project does and who it's for
 
 
 ## Run Locally
@@ -37,4 +34,16 @@ Install composer
 Run Server
 ```bash
   php bin/server.php
+```
+
+Socket Source
+
+```
+    http://socketo.me/docs/websocket
+```
+
+Log Source
+
+```
+    https://seldaek.github.io/monolog/
 ```
