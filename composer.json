@@ -1,0 +1,22 @@
+{
+    "name": "devar/phpchat",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "SocketAPP\\": "app/",
+            "libs\\Logsys\\": "libs/Logsys/",
+            "helpers\\": "helpers/"
+        }
+    },
+    "authors": [
+        {
+            "name": "arlo-peace",
+            "email": "dev.arloakh@outlook.com"
+        }
+    ],
+    "require": {
+        "cboden/ratchet": "^0.4.4",
+        "monolog/monolog": "^3.5",
+      "ext-json": "*"
+    }
+}
