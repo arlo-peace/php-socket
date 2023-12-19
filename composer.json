@@ -3,7 +3,7 @@
     "type": "project",
     "autoload": {
         "psr-4": {
-            "SocketAPP\\": "app/",
+            "SocketAPP\\": ["app/", "cores/"],
             "libs\\Logsys\\": "libs/Logsys/",
             "helpers\\": "helpers/"
         }
@@ -17,6 +17,8 @@
     "require": {
         "cboden/ratchet": "^0.4.4",
         "monolog/monolog": "^3.5",
-      "ext-json": "*"
+        "illuminate/container": "^8.0",
+        "illuminate/database": "^8.0",
+        "ext-json": "*"
     }
 }

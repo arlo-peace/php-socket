@@ -14,10 +14,25 @@ class Logs
     {
         if (!isset(self::$log)) {
             $logPath = ConfigHelper::get('log.path');
-            $filePath = ConfigHelper::get('log.file');
-            echo $logPath;
+            $subPath = ConfigHelper::get('log.sub');
+            $fileType = ConfigHelper::get('log.type');
+            $filePath = 'log.log';
+            $subPaths = '';
+            if($subPath=='month'){
+                $subPaths = '/'.date('m-Y');
+            } elseif($subPath=='date'){
+                $subPaths = '/'.date('d-m-Y');
+            }
+            if($fileType==='day'){
+                $filePath = '/'.date('d').'.log';
+            } elseif($fileType==='file') {
+                $filePath = '/'.$filePath;
+            } elseif($fileType==='date') {
+                $filePath = '/'.date('d-m-Y').'.log';
+            }
+
             self::$log = new Logger('loggers');
-            self::$log->pushHandler(new StreamHandler($logPath . $filePath, Level::Info));
+            self::$log->pushHandler(new StreamHandler($logPath . $subPaths . $filePath, Level::Info));
         }
     }
 

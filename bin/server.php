@@ -6,7 +6,7 @@ use Ratchet\Server\IoServer;
 use Ratchet\WebSocket\WsServer;
 use SocketAPP\Messages\Chat;
 
-require __DIR__ . '/../vendor/autoload.php';
+require __DIR__ . '/../bootstrap/bootstrap.php';
 
 $server = IoServer::factory(
     new HttpServer(
