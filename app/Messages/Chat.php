@@ -22,10 +22,10 @@ class Chat implements MessageComponentInterface {
 
     public function onMessage(ConnectionInterface $from, $msg) {
 
-        $numRecv = count($this->clients) - 1;
-        $msgLog = sprintf('Connection %d sending message "%s" to %d other connection%s' . "\n"
-            , $from->resourceId, $msg, $numRecv, $numRecv == 1 ? '' : 's');
-        Logs::info("{$msgLog}");
+//        $numRecv = count($this->clients) - 1;
+//        $msgLog = sprintf('Connection %d sending message "%s" to %d other connection%s' . "\n"
+//            , $from->resourceId, $msg, $numRecv, $numRecv == 1 ? '' : 's');
+//        Logs::info("{$msgLog}");
         $data = json_decode($msg, true);
 
         if ($data['type']=='pong'){
@@ -42,7 +42,7 @@ class Chat implements MessageComponentInterface {
             $liveCountIfUser = LiveOnlineModel::where(['anchor_id' => $anchorData->id, 'user_id' => $data['data']['id']])->count();
             if($liveCountIfUser <= 0) {
                 if(isset($data['data']['id'])){
-                    Logs::info("AnchorModel {$anchorData}");
+//                    Logs::info("AnchorModel {$anchorData}");
                     if($anchorData){
                         $liveData = new LiveOnlineModel;
                         $liveData->anchor_id = $anchorData->id;
