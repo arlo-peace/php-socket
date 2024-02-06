@@ -82,12 +82,15 @@ class Chat implements MessageComponentInterface {
         } elseif ($data['type']=='updateSendMsg') {
             Logs::info("updateSendMsg type");
             $from->send($msg);
+        } elseif ($data['type']=='kickOutAnchor'){
+            Logs::info("Close livestream type");
+            $endLive = json_encode([
+                'type' => 'endLive',
+                'anchorId' => $data['anchorId'],
+                'msg' => $data['msg']
+            ]);
+            $from->send($endLive);
         }
-//        foreach ($this->clients as $client) {
-//            if ($from !== $client) {
-//
-//            }
-//        }
     }
 
     public function onClose(ConnectionInterface $conn) {
